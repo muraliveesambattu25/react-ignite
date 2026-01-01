@@ -4,6 +4,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+import VideoPlayer from "@/components/VideoPlayer";
 import {
   GraduationCap,
   Play,
@@ -334,14 +335,12 @@ const Dashboard = () => {
                 <span className="text-foreground">{selectedLesson.title}</span>
               </div>
 
-              {/* Video Player Placeholder */}
-              <div className="aspect-video bg-muted rounded-xl flex items-center justify-center mb-8 border border-border">
-                <div className="text-center">
-                  <div className="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Play className="w-10 h-10 text-primary-foreground" />
-                  </div>
-                  <p className="text-muted-foreground">Video content coming soon</p>
-                </div>
+              {/* Video Player */}
+              <div className="mb-8">
+                <VideoPlayer 
+                  url={selectedLesson.video_url} 
+                  title={selectedLesson.title} 
+                />
               </div>
 
               {/* Lesson Info */}
